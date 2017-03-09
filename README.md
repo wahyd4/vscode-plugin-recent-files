@@ -16,6 +16,9 @@
 ## Screenshot
 ![Screenshot of open recent files](screenshot.png)
 
+## Source Code
+  <https://github.com/wahyd4/vscode-plugin-recent-files>
+
 ## Known Issues
 
   --
