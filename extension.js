@@ -11,7 +11,7 @@ function activate(context) {
 
   // Use the console to output diagnostic information (console.log) and errors (console.error)
   // This line of code will only be executed once when your extension is activated
-  console.log('Congratulations, your extension "recent-files" is now active!');
+  console.log('"recent-files" is now active!');
 
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with  registerCommand
@@ -19,21 +19,8 @@ function activate(context) {
   var disposable = vscode.commands.registerCommand('extension.openRecentlyFiles', function () {
     // The code you place here will be executed every time your command is executed
 
-    // Display a message box to the user
-    // vscode.window.showInformationMessage('Hello World!');
     vscode.window.showQuickPick(map.keys()).then((item) => {
-      if(!item || item.trim === "") {
-        return
-      }
-      let uri = map.get(item);
-      if(uri === null) {
-        vscode.window.showWarningMessage("Can't find the file you choosed.")
-        return;
-      }
-      let targetDocument = vscode.workspace.openTextDocument(map.get(item));
-      targetDocument.then(function (document) {
-        vscode.window.showTextDocument(document);
-      });
+      handleUserInput(item);
     });
   });
 
@@ -52,5 +39,21 @@ exports.activate = activate;
 
 // this method is called when your extension is deactivated
 function deactivate() {
+  map.clear();
 }
 exports.deactivate = deactivate;
+
+function handleUserInput(item) {
+  if (!item || item.trim === "") {
+    return
+  }
+  let uri = map.get(item);
+  if (uri === null) {
+    vscode.window.showWarningMessage("Can't find the file you choosed.")
+    return;
+  }
+  let targetDocument = vscode.workspace.openTextDocument(map.get(item));
+  targetDocument.then(function (document) {
+    vscode.window.showTextDocument(document);
+  });
+}
