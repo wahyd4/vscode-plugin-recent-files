@@ -1,8 +1,8 @@
 {
     "name": "recent-files",
-    "displayName": "Recent files",
+    "displayName": "Open Recent Files",
     "description": "Open recent files like you do in Intellij idea.",
-    "version": "0.4.0",
+    "version": "1.0.0",
     "publisher": "junv",
     "engines": {
         "vscode": "^1.10.0"
@@ -17,13 +17,13 @@
     "contributes": {
         "commands": [
             {
-                "command": "extension.openRecentlyFiles",
-                "title": "Recently Files"
+                "command": "extension.openRecentFiles",
+                "title": "Open Recent Files"
             }
         ],
         "keybindings": [
             {
-                "command": "extension.openRecentlyFiles",
+                "command": "extension.openRecentFiles",
                 "key": "ctrl+e",
                 "mac": "cmd+e"
             }
@@ -42,6 +42,6 @@
         "@types/mocha": "^2.2.32"
     },
     "dependencies": {
-        "linked-map": "^2.2.2"
+        "lodash": "^4.17.4"
     }
 }
