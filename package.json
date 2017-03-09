@@ -1,37 +1,47 @@
 {
-    "name": "recent-files",
-    "displayName": "Recent files",
-    "description": "Open recent files like Intellij idea.",
-    "version": "0.2.0",
-    "publisher": "junv",
-    "engines": {
-        "vscode": "^1.10.0"
-    },
-    "categories": [
-        "Other"
+  "name": "recent-files",
+  "displayName": "Recent files",
+  "description": "Open recent files like Intellij idea.",
+  "version": "0.2.0",
+  "publisher": "junv",
+  "engines": {
+    "vscode": "^1.10.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.openRecentlyFiles",
+        "title": "Recently Files"
+      }
     ],
-    "activationEvents": [
-        "onCommand:extension.sayHello"
-    ],
-    "main": "./extension",
-    "contributes": {
-        "commands": [
+    "keybindings": [
             {
-                "command": "extension.sayHello",
-                "title": "Recently Opened Files"
+                "command": "extension.openRecentlyFiles",
+                "key": "ctrl+e",
+                "mac": "cmd+e"
             }
         ]
-    },
-    "scripts": {
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "node ./node_modules/vscode/bin/test"
-    },
-    "devDependencies": {
-        "typescript": "^2.0.3",
-        "vscode": "^1.0.0",
-        "mocha": "^2.3.3",
-        "eslint": "^3.6.0",
-        "@types/node": "^6.0.40",
-        "@types/mocha": "^2.2.32"
-    }
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "typescript": "^2.0.3",
+    "vscode": "^1.0.0",
+    "mocha": "^2.3.3",
+    "eslint": "^3.6.0",
+    "@types/node": "^6.0.40",
+    "@types/mocha": "^2.2.32"
+  },
+  "dependencies": {
+    "linked-map": "^2.2.2"
+  }
 }
