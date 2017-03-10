@@ -4,6 +4,7 @@ var vscode = require('vscode');
 var _ = require('lodash');
 
 var list = [];
+var buffer = ""; // to store current file;
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 function activate(context) {
@@ -12,7 +13,7 @@ function activate(context) {
   // This line of code will only be executed once when your extension is activated
   console.log('"recent-files" is now active!');
   //add current active tab to list
-  list.push(vscode.window.activeTextEditor._documentData._uri.path)
+  buffer = vscode.window.activeTextEditor._documentData._uri.path;
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with  registerCommand
   // The commandId parameter must match the command field in package.json
@@ -32,6 +33,7 @@ exports.activate = activate;
 // this method is called when your extension is deactivated
 function deactivate() {
   list = [];
+  buffer = "";
 }
 
 exports.deactivate = deactivate;
@@ -72,6 +74,9 @@ function handleChangeAcitveWindow(e) {
   //only allow to show 20 files.
   if (list.length === 20) list = _.tail(list);
   if (isFileNameExist(uri)) _.remove(list, (item) => { return item === uri });
-  list.push(uri);
+
+  if(!!buffer) list.push(buffer);
+  buffer = uri; //update buffer
+
   list = _.uniq(list);
 }
