@@ -14,7 +14,7 @@
   * press `F1` then type `Open Recent Files`
 
 ## Screenshot
-![Screenshot of open recent files](screenshot.png)
+![Screenshot of open recent files](https://github.com/wahyd4/vscode-plugin-recent-files/raw/master/screenshot.png)
 
 ## Source Code
   <https://github.com/wahyd4/vscode-plugin-recent-files>

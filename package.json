@@ -2,7 +2,8 @@
     "name": "recent-files",
     "displayName": "Open Recent Files",
     "description": "Open recent files like you do in Intellij idea.",
-    "version": "1.0.0",
+    "version": "1.0.2",
+    "icon": "logo.png",
     "publisher": "junv",
     "engines": {
         "vscode": "^1.10.0"
@@ -13,6 +14,16 @@
     "activationEvents": [
         "*"
     ],
+    "keywords": [
+        "intellij",
+        "idea",
+        "recent",
+        "file"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wahyd4/vscode-plugin-recent-files.git"
+    },
     "main": "./extension",
     "contributes": {
         "commands": [

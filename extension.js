@@ -68,6 +68,7 @@ function handleChangeAcitveWindow(e) {
   //ignore invalid item
   if (!e._documentData || !e._documentData._uri) return;
   let uri = e._documentData._uri.path
+  if(!uri || uri.trim() === "") return
   //only allow to show 20 files.
   if (list.length === 20) list = _.tail(list);
   if (isFileNameExist(uri)) _.remove(list, (item) => { return item === uri });
