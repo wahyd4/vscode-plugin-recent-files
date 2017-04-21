@@ -10,10 +10,12 @@ var buffer = ""; // to store current file;
 function activate(context) {
 
   // Use the console to output diagnostic information (console.log) and errors (console.error)
-  // This line of code will only be executed once when your extension is activated
-  console.log('"recent-files" is now active!');
-  //add current active tab to list
-  buffer = vscode.window.activeTextEditor._documentData._uri.path;
+
+  //add current active tab to list, check if there is an active tab
+  if (!!vscode.window.activeTextEditor && !!vscode.window.activeTextEditor._documentData) {
+    buffer = vscode.window.activeTextEditor._documentData._uri.path;
+  }
+
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with  registerCommand
   // The commandId parameter must match the command field in package.json
@@ -26,6 +28,9 @@ function activate(context) {
 
   context.subscriptions.push(disposable);
   context.subscriptions.push(vscode.window.onDidChangeActiveTextEditor(handleChangeAcitveWindow));
+
+  // This line of code will only be executed once when your extension is activated
+  console.log('"recent-files" is now active!');
 }
 exports.activate = activate;
 
@@ -33,13 +38,13 @@ exports.activate = activate;
 // this method is called when your extension is deactivated
 function deactivate() {
   list = [];
-  buffer = "";
+  buffer = ''
 }
 
 exports.deactivate = deactivate;
 
 function handleUserInput(item) {
-  if (!item || item.trim === "") return;
+  if (!item || item.trim === '') return;
   let targetUri = _.findLast(list, (uri) => {
     return uri.indexOf(item) !== -1;
   })
@@ -70,12 +75,12 @@ function handleChangeAcitveWindow(e) {
   //ignore invalid item
   if (!e._documentData || !e._documentData._uri) return;
   let uri = e._documentData._uri.path
-  if(!uri || uri.trim() === "") return
+  if (!uri || uri.trim() === '') return
   //only allow to show 20 files.
   if (list.length === 20) list = _.tail(list);
   if (isFileNameExist(uri)) _.remove(list, (item) => { return item === uri });
 
-  if(!!buffer) list.push(buffer);
+  if (!!buffer) list.push(buffer);
   buffer = uri; //update buffer
 
   list = _.uniq(list);
