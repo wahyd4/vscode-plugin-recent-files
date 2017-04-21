@@ -2,7 +2,7 @@
     "name": "recent-files",
     "displayName": "Open Recent Files",
     "description": "Open recent files like you do in Intellij idea.",
-    "version": "1.0.4",
+    "version": "1.1.0",
     "icon": "logo.png",
     "publisher": "junv",
     "engines": {
