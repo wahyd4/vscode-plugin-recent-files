@@ -27,7 +27,7 @@ function activate(context) {
   });
 
   context.subscriptions.push(disposable);
-  context.subscriptions.push(vscode.window.onDidChangeActiveTextEditor(handleChangeAcitveWindow));
+  context.subscriptions.push(vscode.window.onDidChangeActiveTextEditor(handleChangeActiveWindow));
 
   // This line of code will only be executed once when your extension is activated
   console.log('"recent-files" is now active!');
@@ -49,7 +49,7 @@ function handleUserInput(item) {
     return uri.indexOf(item) !== -1;
   })
   if (!targetUri) {
-    vscode.window.showWarningMessage("Can't find the file you choosed.")
+    vscode.window.showWarningMessage("Can't find the file you selected.")
     return;
   }
   let targetDocument = vscode.workspace.openTextDocument(targetUri);
@@ -70,7 +70,7 @@ function isFileNameExist(fileName) {
   })
 }
 
-function handleChangeAcitveWindow(e) {
+function handleChangeActiveWindow(e) {
   if (!e) return;
   //ignore invalid item
   if (!e._documentData || !e._documentData._uri) return;
