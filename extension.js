@@ -84,4 +84,7 @@ function handleChangeActiveWindow(e) {
   buffer = uri; //update buffer
 
   list = _.uniq(list);
+  list = _.filter(list, (item) => {
+    return !!item && (item.trim() !== "")
+  })
 }
