@@ -61,6 +61,8 @@ function handleUserInput(item) {
 function mapUriToDisplayName() {
   return _.chain(list.slice()).uniq().reverse().map((item) => {
     return item.substring(vscode.workspace.rootPath.length + 1)
+  }).filter((item) => {
+    return !!item && (item.trim() !== "")
   }).value();
 }
 
@@ -78,13 +80,12 @@ function handleChangeActiveWindow(e) {
   if (!uri || uri.trim() === '') return
   //only allow to show 20 files.
   if (list.length === 20) list = _.tail(list);
-  if (isFileNameExist(uri)) _.remove(list, (item) => { return item === uri });
+  if (isFileNameExist(uri)) _.remove(list, (item) => {
+    return item === uri
+  });
 
   if (!!buffer) list.push(buffer);
   buffer = uri; //update buffer
 
   list = _.uniq(list);
-  list = _.filter(list, (item) => {
-    return !!item && (item.trim() !== "")
-  })
 }
