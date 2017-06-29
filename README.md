@@ -16,9 +16,5 @@
 ## Screenshot
 ![Screenshot of open recent files](https://github.com/wahyd4/vscode-plugin-recent-files/raw/master/demo.gif)
 
-## Known Issues
-
-  --
-
 
 -------------------------------------------------------------------------------------
