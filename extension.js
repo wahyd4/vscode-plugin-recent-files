@@ -62,7 +62,8 @@ function mapUriToDisplayName() {
   return _.chain(list.slice()).uniq().reverse().map((item) => {
     return item.substring(vscode.workspace.rootPath.length + 1)
   }).filter((item) => {
-    return !!item && (item.trim() !== "")
+    //ignore the system files which starts with .
+    return !!item && (item.trim() !== "") && !(item.startsWith("."))
   }).value();
 }
 
