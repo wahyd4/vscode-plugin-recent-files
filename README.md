@@ -1,8 +1,8 @@
 
 ## Features
-  This plugin allows you to view the recently opened files. It's just like what you have in Intellij, not VSCode offers.
+  This plugin allows you to view the recently opened files. It's just like what you have in Intellij, not the VSCode offers.
 
-  We encourge you use `cmd` + `e` or `ctrl` + `e` in windows to use this feature. So you might need to update your `keybindings.json` to replace the VSCode's default Open Recent behaviour.
+  We encourage you to use `cmd` + `e` or `ctrl` + `e`keys in windows to trigger this feature. So you might want to update your `keybindings.json` to replace the VSCode's default Open Recent behavior.
 
   ```json
   { "key": "cmd+e",                 "command": "extension.openRecentFiles" },
