@@ -9,6 +9,8 @@
   { "key": "ctrl+e",                 "command": "workbench.action.openRecent" }
   ```
 
+## Notice
+  * We don't list the files outside the workspace.
 ## How to use
   * press `cmd` + `e` (`ctrl` + `e` in Windows)
   * press `F1` then type `Open Recent Files`

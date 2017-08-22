@@ -59,7 +59,9 @@ function handleUserInput(item) {
 }
 
 function mapUriToDisplayName() {
-  return _.chain(list.slice()).uniq().reverse().map((item) => {
+  return _.chain(list.slice()).uniq().reverse().remove(item => {
+    return item.split(vscode.workspace.rootPath).length != 1
+  }).map((item) => {
     return item.substring(vscode.workspace.rootPath.length + 1)
   }).filter((item) => {
     //ignore the system files which starts with .
