@@ -25,7 +25,7 @@
         "type": "git",
         "url": "https://github.com/wahyd4/vscode-plugin-recent-files.git"
     },
-    "main": "./extension",
+    "main": "./src/extension",
     "contributes": {
         "commands": [
             {
