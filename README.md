@@ -2,7 +2,7 @@
 
 Due to the VSCode `Go to file` command already have this functionality, so I am not going to maintain this plugin any more. You can have what you have in Intellij just by modifying the keybindings.json in VSCode
 
- ![vscode][https://github.com/wahyd4/vscode-plugin-recent-files/raw/master/update.png]
+ ![vscode](https://github.com/wahyd4/vscode-plugin-recent-files/raw/master/update.png)
 
 ### Mac
 ```json
