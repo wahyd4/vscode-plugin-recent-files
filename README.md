@@ -1,6 +1,6 @@
 ## Notice
 
-Due to the VSCode `Go to file` command already have this functionality, so I am not going to maintain this plugin any more. You can have what you already had in Intellij just by modifying the keybindings.json in VSCode
+Due to the VSCode `Go to file` command already have this functionality, so I am not going to maintain this plugin any more.  The only difference is VSCode will list the current file at the top of the list, but Intellij will ignore current file.  You can have what you already had in Intellij just by modifying the keybindings.json in VSCode
 
  ![vscode](https://github.com/wahyd4/vscode-plugin-recent-files/raw/master/update.png)
 
@@ -19,7 +19,7 @@ Due to the VSCode `Go to file` command already have this functionality, so I am 
   "command": "workbench.action.quickOpen"
 }
 ```
-<hr>
+
 ## Features
   This plugin allows you to view the recently opened files. It's just like what you have in Intellij, not the VSCode offers.
 
